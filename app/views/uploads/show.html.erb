@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"><%=image_tag @upload.photo, class:"user-uploads" %></div>
+    <div class="col-sm-8 word-wrap ">
+        <%= @upload.info %>
+    </div>
+  </div>
+</div>
+
+</div>
+  </div>
+
+
+  <div class="container">
+    <%if(@upload.user_id == current_user.id)%>
+        <div style="text-align:center">
+            <%= button_to "EDIT",edit_upload_path, class: "btn btn-primary ", method: :get%><br>
+            <%= button_to "DESTROY", upload_path(@upload), class: "btn btn-primary", method: :delete, data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+            } %>
+    <%end%>
+   </div>
+  </div>
+
+</div>
+
+<hr>
+
+<div class="container">
+<h1><u>COMMENTS</u></h1>
+    <%= render @upload.comments %>
+
+    <h2>ADD COMMENTS </h2>
+    <%= render 'comments/form' %>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="text-center">Clonogram</h1>
+  <div class="row">
+    <% @uploads.each do |upload| %>
+    <div class="col-3 my-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card"></div>
+        <div class="card-header"><%=image_tag upload.user.avatar, width:"15%"%><%=upload.uploaded_by%></div>
+        <%=image_tag upload.photo, class:"upload-image" %>
+        <div class="card-body">
+          <h5 class="card-title"> </h5>
+          <p class="d-inline-flex gap-1">
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          DETAILS  </a>
+          </p>
+
+          <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+            <%= upload.info %>
+        </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+  
+  <div class="apple_pagination">
+  <div class="page_info">
+    <%= page_entries_info @uploads %>
+  </div>
+  <%= will_paginate @uploads, :container => false %>
+
+</div>
