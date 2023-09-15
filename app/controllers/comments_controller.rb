@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# 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
 class CommentsController < ApplicationController
   before_action :set_upload, only: %i[create destroy]
   before_action :set_comment, only: :destroy
