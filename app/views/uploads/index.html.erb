@@ -1,26 +1,26 @@
 <div class="container">
-<h1><u>My Uploads<u></h1>
-<div class="row">
-  <% @uploads.each do |upload| %>
-  <div class="col-3 my-3">
-    <div class="card" style="width: 18rem ">
-      <div card-header=<%=upload.uploaded_by%>></div>
-      <%=image_tag upload.photo, class:"user-uploads" %>
-      <div class="card-body">
-        <h5 class="card-title"></h5>
-        <div class="container">
-          <p class="card-text">
-              <a class="btn btn-primary " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> DETAILS  </a>
-            
-            <div class="collapse" id="collapseExample">
-              <div class="card card-body"> <%= upload.info %> </div>
-          </p>
+<h1 style="text-align:center">My Uploads</h1>
+  <div class="row">
+    <% @uploads.each do |upload| %>
+    <div class="col-3 my-3">
+      <div class="card" style="width: 18rem ">
+        <div card-header=<%=upload.uploaded_by%>></div>
+        <%=image_tag upload.photo, class:"user-uploads" %>
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <div class="container">
+            <p class="card-text">
+                <a class="btn btn-primary " data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"> DETAILS  </a>
+              
+              <div class="collapse" id="collapseExample">
+                <div class="card card-body"> <%= upload.info %> </div>
+            </p>
+          </div>
         </div>
+        <%= button_to "SHOW", upload_path(upload), class: "btn btn-primary", method: :get %>
       </div>
-      <%= button_to "SHOW", upload_path(upload), class: "btn btn-primary", method: :get %>
     </div>
   </div>
-</div>
 <% end %>
 
 

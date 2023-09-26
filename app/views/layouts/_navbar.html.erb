@@ -10,11 +10,15 @@
     <% if user_signed_in? %> 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href=<%=uploads_index_path%>>MY POSTS</a>
-        <%= link_to "UPLOAD POST", new_upload_path %>
-        </li>
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href=<%=uploads_index_path%>>MY POSTS</a>
+          </li>
+          <li>
+            <%= link_to "UPLOAD POST", new_upload_path, class:"nav-link"%>
+          </li>
         </ul>
+      
+
         <ul>
           <%= button_to "Light-Mode", "#", class:"btn btn-primary action-button mx-2 my-1" %>
           <%= button_to "Dark- Mode", "#", class:"btn btn-primary action-button mx-2" %>
